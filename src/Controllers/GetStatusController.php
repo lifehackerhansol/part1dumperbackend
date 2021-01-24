@@ -20,7 +20,7 @@ class GetStatusController extends BaseController {
 
     public function unlockAction() {
         if (isset($this->request->get['fc'])) {
-            if (isset($this->request->get['id0']) {
+            if (isset($this->request->get['id0'])) {
                 $id0 = $this->request->get['id0'];
             }else{
                 $id0 = '%'; // wildcard
