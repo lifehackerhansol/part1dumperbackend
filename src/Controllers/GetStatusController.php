@@ -30,10 +30,10 @@ class GetStatusController extends BaseController {
                 $dbCon = DatabaseManager::getHandle();
                 $statement = $dbCon->prepare('update seedqueue set claimedby = null, state = 0 where friendcode like ? AND id0 like ?');
                 $results = $statement->execute([$friendcode,$id0]);
-                return "success"
+                return "success";
             }
         }
-        return "error"
+        return "error";
     }
 
 	public function indexAction() {
