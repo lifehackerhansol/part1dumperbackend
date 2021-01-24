@@ -4,6 +4,8 @@ namespace BruteforceMovable\Controllers;
 
 use BruteforceMovable\BaseController;
 use BruteforceMovable\DatabaseManager;
+use BruteforceMovable\Validation\FriendCode;
+use BruteforceMovable\Validation\ID0;
 
 class GetStatusController extends BaseController {
     protected $viewFolder = '';
@@ -14,6 +16,24 @@ class GetStatusController extends BaseController {
             $statement = $dbCon->prepare('update seedqueue set claimedby = null where friendcode like ?');
             $results = $statement->execute([$this->request->get['fc']]);
         }
+    }
+
+    public function unlockAction() {
+        if (isset($this->request->get['fc']) {
+            if (isset($this->request->get['id0']) {
+                $id0 = $this->request->get['id0'];
+            }else{
+                $id0 = '%'; // wildcard
+            }
+            $friendcode = $this->request->get['fc'];
+            if (ID0::IsValid($id0) && FriendCode::IsValid($friendcode)) {
+                $dbCon = DatabaseManager::getHandle();
+                $statement = $dbCon->prepare('update seedqueue set claimedby = null, state = 0 where friendcode like ? AND id0 like ?');
+                $results = $statement->execute([$friendcode,$id0]);
+                return "success"
+            }
+        }
+        return "error"
     }
 
 	public function indexAction() {
