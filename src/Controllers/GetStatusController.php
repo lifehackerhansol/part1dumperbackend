@@ -26,7 +26,7 @@ class GetStatusController extends BaseController {
                 $id0 = '%'; // wildcard
             }
             $friendcode = $this->request->get['fc'];
-            if (ID0::IsValid($id0) && FriendCode::IsValid($friendcode)) {
+            if ((!isset($this->request->get['id0']) || ID0::IsValid($id0)) && FriendCode::IsValid($friendcode)) {
                 $dbCon = DatabaseManager::getHandle();
                 $statement = $dbCon->prepare('update seedqueue set claimedby = null, state = 0 where friendcode like ? AND id0 like ?');
                 $results = $statement->execute([$friendcode,$id0]);
