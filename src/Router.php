@@ -26,6 +26,8 @@ class Router {
 				return ['GetStatus', 'index'];
 			case 'resettimeout.php':
 				return ['GetStatus', 'resettimeout'];
+			case 'unlock.php':
+				return ['GetStatus', 'unlock'];
 			default:
 				return ['GetFriends', 'index'];
 				break;
