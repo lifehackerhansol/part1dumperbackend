@@ -12,7 +12,7 @@ class FriendCode
     private static function IsInValidPrincipalRange($principal)
     {
         return ($principal > 130543475 && $principal <= 149643182) ||
-            ($principal >= 1798000000 && $principal <= 1875939608);
+            ($principal >= 1798000000 && $principal <= 1975939608);
     }
 
     public static function IsValid($friendCode)
