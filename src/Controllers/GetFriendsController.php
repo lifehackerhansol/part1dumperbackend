@@ -12,7 +12,7 @@ class GetFriendsController extends BaseController {
         $dbCon = DatabaseManager::getHandle();
         $timeStarted = microtime(true);	
         $currentClaimCount = $this->getClaimCount();
-        if ($currentClaimCount >= 15) {  
+        if ($currentClaimCount >= 30) {  
             return "nothing";
         }
 
